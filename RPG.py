@@ -9,13 +9,23 @@ class Personagem:
         self.MagDef = MagDef
         self.Spd = Spd
 
-    
     def Equipar_arma(self, Armas):
-        self.Atk = self.Atk + ragnarok.Atk
-        self.MagAtk = self.MagAtk + ragnarok.MagAtk
-        self.Spd = self.Spd + ragnarok.Spd
-        print(f'Equipou {ragnarok.Nome}')
-        
+        self.Atk = self.Atk + Armas.Atk
+        self.MagAtk = self.MagAtk + Armas.MagAtk
+        self.Spd = self.Spd + Armas.Spd
+        print(f'Equipou {Armas.Nome}')
+
+    def Equipar_armadura(self, Armaduras):
+        self.Def = self.Def + Armaduras.Def
+        self.MagDef = self.MagDef + Armaduras.MagDef
+        self.Spd = self.Spd + Armaduras.Spd
+        print(f'Equipou {Armaduras.Nome}')
+
+    def Equipar_escudo(self, Escudos):
+        self.Def = self.Def + Escudos.Def
+        self.MagDef = self.MagDef + Escudos.MagDef
+        self.Spd = self.Spd + Escudos.Spd
+        print(f'Equipou {Escudos.Nome}')
     
     def __str__(self):
         return f'''
@@ -85,11 +95,18 @@ class Items:
 
 barbaro1 = Personagem("Pedro", "Mago", 12, 10, 2, 3, 5, 4)
 ragnarok = Armas("Ragnarok", 20, 15, 10)
+excalibur = Armas("Excalibur", 22, 20, 15)
 potion = Items("Poção", "Recupera 5 HP")
-
+armadura = Armaduras("Libra", 20, 20, 0)
+escudo = Escudos("Dragon Shield", 10, 8, 0)
 
 print(barbaro1)
 print(ragnarok)
-barbaro1.Equipar_arma(ragnarok)
+print(excalibur)
+print(armadura)
+print(escudo)
+barbaro1.Equipar_arma(excalibur)
+barbaro1.Equipar_armadura(armadura)
+barbaro1.Equipar_escudo(escudo)
 print(barbaro1)
 print(potion)
