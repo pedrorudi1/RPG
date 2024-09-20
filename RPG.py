@@ -189,7 +189,7 @@ def Menu():
 
     return input(menu)
 
-def Modo_de_batalha(Personagem, Inimigos, Dano):
+def Modo_de_batalha(Personagem, Inimigos, Dano, Dano_inimigo):
 
     while Personagem.HP and Inimigos.HP > 0:
     
@@ -214,62 +214,41 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                     else:
                         print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
-                    acao_inimigo = random.randint(1, 2)
-                    if acao_inimigo == 1:
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                    if Dano_inimigo > 0:
+                        Personagem.HP -= Dano_inimigo
+                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                        print(f'{Personagem.HP} restante.')
+                        if Personagem.HP <= 0:
+                            print(f'{Personagem.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                    
-                    elif acao_inimigo == 2:
-                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} usa magia, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
 
                 if Inimigos.Spd > Personagem.Spd:
                     print(f'\n{Inimigos.Nome} age primeiro.')
-                    acao_inimigo = random.randint(1, 2)
-                    if acao_inimigo == 1:
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                    if Dano_inimigo > 0:
+                        Personagem.HP -= Dano_inimigo
+                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                        print(f'{Personagem.HP} restante.')
+                        if Personagem.HP <= 0:
+                            print(f'{Personagem.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                    
-                    elif acao_inimigo == 2:
-                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
-
+                    Dano_personagem = Ataque_Personagem(Personagem, Inimigos, Dano)
+                    if Dano_personagem > 0:
+                        Inimigos.HP -= Dano_personagem
+                        print(f'{Personagem.Nome} ataca, {Inimigos.Nome} perde {Dano_personagem} HP')
+                        print(f'{Inimigos.HP} restante.')
+                        if Inimigos.HP <= 0:
+                            print(f'{Inimigos.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
             if opcao == "2":
                 if Personagem.Spd >= Inimigos.Spd:
@@ -285,62 +264,30 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                     else:
                         print(f'{Personagem.Nome} usa magia... {Inimigos.Nome} desvia.')
 
-                    acao_inimigo = random.randint(1, 2)
-                    if acao_inimigo == 1:
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                    
-                    elif acao_inimigo == 2:
-                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                    if Dano_inimigo > 0:
+                        Personagem.HP -= Dano_inimigo
+                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                        print(f'{Personagem.HP} restante.')
+                        if Personagem.HP <= 0:
+                            print(f'{Personagem.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
 
                 if Inimigos.Spd > Personagem.Spd:
                     print(f'\n{Inimigos.Nome} age primeiro.')
-                    acao_inimigo = random.randint(1, 2)
-                    if acao_inimigo == 1:
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                    
-                    elif acao_inimigo == 2:
-                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                    if Dano_inimigo > 0:
+                        Personagem.HP -= Dano_inimigo
+                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                        print(f'{Personagem.HP} restante.')
+                        if Personagem.HP <= 0:
+                            print(f'{Personagem.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
                         
                     Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
                     if Dano_personagem > 0:
@@ -358,31 +305,16 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                 print(f'{Personagem.Nome} se defende.')
                 Personagem.Def = int(Personagem.Def * 2)
                 Personagem.MagDef = int(Personagem.MagDef * 2)
-                acao_inimigo = random.randint(1, 2)
-                if acao_inimigo == 1:
-                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                    if Dano_inimigo > 0:
-                        Personagem.HP -= Dano_inimigo
-                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                        print(f'{Personagem.HP} restante.')
-                        if Personagem.HP <= 0:
-                            print(f'{Personagem.Nome} morreu.')
-                            break
+                Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                if Dano_inimigo > 0:
+                    Personagem.HP -= Dano_inimigo
+                    print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                    print(f'{Personagem.HP} restante.')
+                    if Personagem.HP <= 0:
+                        print(f'{Personagem.Nome} morreu.')
+                        break
                     else:
                         print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                    
-                elif acao_inimigo == 2:
-                    Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                    if Dano_inimigo > 0:
-                        Personagem.HP -= Dano_inimigo
-                        print(f'{Inimigos.Nome} usa magia, {Personagem.Nome} perde {Dano_inimigo} HP')
-                        print(f'{Personagem.HP} restante.')
-
-                        if Personagem.HP <= 0:
-                            print(f'{Personagem.Nome} morreu.')
-                            break
-                    else:
-                        print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
                 Personagem.Def = int(Personagem.Def / 2)
                 Personagem.MagDef = int(Personagem.MagDef / 2)
 
@@ -393,31 +325,16 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                     break
                 else:
                     print(f'{Personagem.Nome} falhou na fuga.')
-                    acao_inimigo = random.randint(1, 2)
-                    if acao_inimigo == 1:
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-                        
-                    elif acao_inimigo == 2:
-                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
-                        if Dano_inimigo > 0:
-                            Personagem.HP -= Dano_inimigo
-                            print(f'{Inimigos.Nome} usa magia, {Personagem.Nome} perde {Dano_inimigo} HP')
-                            print(f'{Personagem.HP} restante.')
-
-                            if Personagem.HP <= 0:
-                                print(f'{Personagem.Nome} morreu.')
-                                break
-                        else:
-                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo)
+                    if Dano_inimigo > 0:
+                        Personagem.HP -= Dano_inimigo
+                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                        print(f'{Personagem.HP} restante.')
+                        if Personagem.HP <= 0:
+                            print(f'{Personagem.Nome} morreu.')
+                            break
+                    else:
+                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
 def Ataque_Personagem(Personagem, Inimigos, Dano):
     Dano = random.randint(1, Personagem.Atk) - Inimigos.Def
@@ -433,19 +350,22 @@ def Magia_Personagem(Personagem, Inimigos, Dano):
     else:
         return 0
     
-def Ataque_Inimigo(Inimigos, Personagem, Dano):
-    Dano = random.randint(1, Inimigos.Atk) - Personagem.Def
-    if Dano > 0:
-        return Dano
-    else:
-        return 0
+def Ataque_Inimigo(Inimigos, Personagem, Dano_inimigo):
+    acao_inimigo = random.randint(1, 2)
+    if acao_inimigo == 1:
+        Dano_inimigo = random.randint(1, Inimigos.Atk) - Personagem.Def
+        if Dano_inimigo > 0:
+            return Dano_inimigo
+        else:
+            return 0
+                    
+    elif acao_inimigo == 2:
+        Dano_inimigo = random.randint(1, Inimigos.MagAtk) - Personagem.MagDef
+        if Dano_inimigo > 0:
+            return Dano_inimigo
+        else:
+            return 0
 
-def Magia_Inimigo(Inimigos, Personagem, Dano):
-    Dano = random.randint(1, Inimigos.MagAtk) - Personagem.MagDef
-    if Dano > 0:
-        return Dano
-    else:
-        return 0
     
 def main():
     barbaro1 = Personagem("Pedro", "Mago", 1, 15, 2, 15, 1, 5, 4)
@@ -457,13 +377,14 @@ def main():
     escudo = Escudos("Dragon Shield", 10, 8, 0)
     goblin = Inimigos("Goblin", 20, 5, 1, 2, 1, 5, 5)
     Dano = 0
+    Dano_inimigo = 0
 
     while True:
 
         opcao = Menu()
 
         if opcao == "8":
-            Modo_de_batalha(mago1, goblin, Dano)
+            Modo_de_batalha(mago1, goblin, Dano, Dano_inimigo)
         
         if opcao == "9":
             break
