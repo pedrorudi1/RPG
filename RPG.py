@@ -87,7 +87,7 @@ class Inimigos:
 
 
 class Armas:
-    def __init__(self, Nome, Atk, MagAtk, Spd):
+    def __init__(self, Nome:str, Atk:int, MagAtk:int, Spd:int):
         self.Nome = Nome
         self.Atk = Atk
         self.MagAtk = MagAtk
@@ -102,7 +102,7 @@ class Armas:
 
 
 class Armaduras:
-    def __init__(self, Nome, Def, MagDef, Spd):
+    def __init__(self, Nome:str, Def:int, MagDef:int, Spd:int):
         self.Nome = Nome
         self.Def = Def
         self.MagDef = MagDef
@@ -117,7 +117,7 @@ class Armaduras:
 
 
 class Escudos:
-    def __init__(self, Nome, Def, MagDef, Spd):
+    def __init__(self, Nome:str, Def:int, MagDef:int, Spd:int):
         self.Nome = Nome
         self.Def = Def
         self.MagDef = MagDef
@@ -132,7 +132,7 @@ class Escudos:
     
 
 class Acessorios:
-    def __init__(self, Nome, HP, Atk, Def, MagAtk, MagDef, Spd, Efeito):
+    def __init__(self, Nome:str, HP:int, Atk:int, Def:int, MagAtk:int, MagDef:int, Spd:int, Efeito:int):
         self.Nome = Nome
         self.HP = HP
         self.Atk = Atk
@@ -155,7 +155,7 @@ class Acessorios:
 
 
 class Items:
-    def __init__ (self, Nome, Efeito):
+    def __init__ (self, Nome:str, Efeito:str):
         self.Nome = Nome
         self.Efeito = Efeito
 
