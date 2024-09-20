@@ -198,7 +198,7 @@ def Modo_de_batalha(Personagem, Inimigos):
             3 - Defender
             4 - Fugir
             Escolha a opção: ''')
-            if opcao == 1:
+            if opcao == "1":
                 Dano = (random.randint(1, Personagem.Atk)) - Inimigos.Def
                 return Dano
                 if Dano > 0:
