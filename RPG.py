@@ -386,6 +386,40 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                 Personagem.Def = int(Personagem.Def / 2)
                 Personagem.MagDef = int(Personagem.MagDef / 2)
 
+            if opcao == "4":
+                fuga = random.randint(1, 5)
+                if fuga >= 3:
+                    print(f'{Personagem.Nome} fugiu.')
+                    break
+                else:
+                    print(f'{Personagem.Nome} falhou na fuga.')
+                    acao_inimigo = random.randint(1, 2)
+                    if acao_inimigo == 1:
+                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
+                        if Dano_inimigo > 0:
+                            Personagem.HP -= Dano_inimigo
+                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                            print(f'{Personagem.HP} restante.')
+                            if Personagem.HP <= 0:
+                                print(f'{Personagem.Nome} morreu.')
+                                break
+                        else:
+                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
+                        
+                    elif acao_inimigo == 2:
+                        Dano_inimigo = Magia_Inimigo(Inimigos, Personagem, Dano)
+                        if Dano_inimigo > 0:
+                            Personagem.HP -= Dano_inimigo
+                            print(f'{Inimigos.Nome} usa magia, {Personagem.Nome} perde {Dano_inimigo} HP')
+                            print(f'{Personagem.HP} restante.')
+
+                            if Personagem.HP <= 0:
+                                print(f'{Personagem.Nome} morreu.')
+                                break
+                        else:
+                            print(f'{Inimigos.Nome} usa magia... {Personagem.Nome} desvia.')
+
+
 def Ataque_Personagem(Personagem, Inimigos, Dano):
     Dano = random.randint(1, Personagem.Atk) - Inimigos.Def
     if Dano > 0:
