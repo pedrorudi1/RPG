@@ -163,7 +163,7 @@ class Items:
         return f'{self.Efeito}'
 
 
-def Menu():
+def MenuPrincipal():
     menu = '''
     ============ MENU PRINCIPAL ============
     
@@ -189,7 +189,7 @@ def Menu():
 
     return input(menu)
 
-def Modo_de_batalha(Personagem, Inimigos, Dano, Dano_inimigo):
+def Modo_de_batalha(Personagem, Inimigos, Dano):
 
     while Personagem.HP and Inimigos.HP > 0:
     
@@ -236,9 +236,8 @@ def Modo_de_batalha(Personagem, Inimigos, Dano, Dano_inimigo):
                         if Personagem.HP <= 0:
                             print(f'{Personagem.Nome} morreu.')
                             break
-                    else:
-                        print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
-
+                        else:
+                            print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
                     Dano_personagem = Ataque_Personagem(Personagem, Inimigos, Dano)
                     if Dano_personagem > 0:
                         Inimigos.HP -= Dano_personagem
@@ -247,8 +246,8 @@ def Modo_de_batalha(Personagem, Inimigos, Dano, Dano_inimigo):
                         if Inimigos.HP <= 0:
                             print(f'{Inimigos.Nome} morreu.')
                             break
-                    else:
-                        print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
+                        else:
+                            print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
             if opcao == "2":
                 if Personagem.Spd >= Inimigos.Spd:
@@ -366,23 +365,48 @@ def Ataque_Inimigo(Inimigos, Personagem, Dano):
             return 0
 
 def main():
-    barbaro1 = Personagem("Pedro", "Mago", 1, 15, 2, 15, 1, 5, 4)
-    mago1 = Personagem("Mágicão", "Mago", 1, 15, 3, 12, 2, 8, 6)
-    ragnarok = Armas("Ragnarok", 20, 15, 10)
-    excalibur = Armas("Excalibur", 22, 20, 15)
-    potion = Items("Poção", "Recupera 5 HP")
-    armadura = Armaduras("Libra", 20, 20, 0)
-    escudo = Escudos("Dragon Shield", 10, 8, 0)
-    goblin = Inimigos("Goblin", 20, 5, 1, 2, 1, 5, 5)
+
+    goblin = Inimigos("Goblin", 20, 10, 1, 2, 1, 5, 5)
     Dano = 0
     Dano_inimigo = 0
 
     while True:
 
-        opcao = Menu()
+        opcao = MenuPrincipal()
+
+        if opcao == "1":
+            personagem = Personagem(Nome = str(input('Digite o nome do Personagem: ')),
+            Classe = str(input('Digite a Classe do Personagem: ')),
+            level = int(input('Digite o nível inicial do personagem: ')),
+            HP = int(input('Digite o HP inicial do Personagem: ')),
+            Atk = int(input('Digite o ataque inicial do Personagem: ')),
+            MagAtk = int(input('Digite o Ataque Mágico do Personagem: ')),
+            Def = int(input('Digite a defesa do personagem: ')),
+            MagDef = int(input('Digite a Defesa Mágica do Personagem: ')),
+            Spd = int(input('Digite a Velocidade do Personagem: ')))
+            print(f'Personagem criado com sucesso.')
+            print(personagem)
+
+        if opcao == "2":
+            inimigo = Inimigos(Nome = str(input('Digite o nome do Inimigo: ')),
+            HP = int(input('Digite o HP inicial do Inimigo: ')),
+            Atk = int(input('Digite o ataque inicial do Inimigo: ')),
+            MagAtk = int(input('Digite o Ataque Mágico do Inimigo: ')),
+            Def = int(input('Digite a defesa do Inimigo: ')),
+            MagDef = int(input('Digite a Defesa Mágica do Inimigo: ')),
+            Spd = int(input('Digite a Velocidade do Inimigo: ')),
+            Xp = int(input('Digite a quantidade de Experiência que o Inimigo tem: ')))
+            print(f'Inimigo criado com sucesso.')
+            print(inimigo)
+            
+        if opcao == "3":
+            arma = Armas(Nome = str(input('Digite o nome da arma: ')),
+            Atk = int(input('Digite a força de ataque da arma: ')),
+            MagAtk = int(put('Digite a força de ataque mágico da arma: ')), Spd:int)
 
         if opcao == "8":
-            Modo_de_batalha(mago1, goblin, Dano, Dano_inimigo)
+                Modo_de_batalha(personagem, inimigo, Dano)
+
         
         if opcao == "9":
             break
