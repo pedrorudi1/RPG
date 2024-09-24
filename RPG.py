@@ -355,7 +355,7 @@ def main():
 
     goblin = Inimigos("Goblin", 20, 10, 1, 2, 1, 5, 5)
     Dano = 0
-    personagem = Personagem("Pedro", "Barbaro", 1, 20, 10, 10, 3, 3, 5)
+    personagem = Personagem("Pedro", "Barbaro", 1, 20, 10, 10, 3, 3, 4)
     inimigo = Inimigos("Orc", 20, 10, 10, 3, 3, 5, 5)
 
     while True:
@@ -400,8 +400,7 @@ def main():
                     print(f'Necessário criar inimigo primeiro.')
                 else:
                     Modo_de_batalha(personagem, inimigo, Dano)
-
-        
+ 
         if opcao == "9":
             break
 
