@@ -334,6 +334,9 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                     else:
                         print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
+            else:
+                print(f'Opção inválida.')
+
 def Ataque_Personagem(Personagem, Inimigos, Dano):
     Dano = random.randint(1, Personagem.Atk) - Inimigos.Def
     if Dano > 0:
