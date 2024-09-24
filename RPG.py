@@ -431,16 +431,3 @@ def main():
 
         
 main()
-
-# print(barbaro1)
-# print(ragnarok)
-# print(excalibur)
-# print(armadura)
-# print(escudo)
-# barbaro1.Equipar_arma(excalibur)
-# barbaro1.Equipar_armadura(armadura)
-# barbaro1.Equipar_escudo(escudo)
-# barbaro1.level_up(1)
-# print(barbaro1)
-# print(potion)
-# print(goblin)
