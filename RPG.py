@@ -387,18 +387,24 @@ def main():
                 Atk = int(input('Digite a força de ataque da arma: ')),
                 MagAtk = int(put('Digite a força de ataque mágico da arma: ')),
                 Spd = int(input('Digite o bônus de velocidade da arma: ')))
+                print(f'Arma criada com sucesso.')
+                print(arma)
 
             case "4":
                 armadura = Armaduras(Nome = str(input('Digite o nome da armadura: ')),
                 Def = int(input('Digite a força de defesa da armadura: ')),
                 MagDef = int(put('Digite a força de defesa mágica da armadura: ')),
                 Spd = int(input('Digite o bônus de velocidade da armadura: ')))
+                print(f'Armadura criada com sucesso.')
+                print(armadura)
 
             case  "5":
                 escudo = Escudos(Nome = str(input('Digite o nome do escudo: ')),
                 Def = int(input('Digite a força de defesa do escudo: ')),
                 MagDef = int(put('Digite a força de defesa mágica do escudo: ')),
                 Spd = int(input('Digite o bônus de velocidade do escudo: ')))
+                print(f'Escudo criado com sucesso.')
+                print(escudo)
 
             case "6":
                 acessorio = Acessorios(Nome = str(input('Digite o nome do acessório: ')),
@@ -409,10 +415,14 @@ def main():
                 MagDef = int(input('Digite o bônus de Defesa Mágica do acessório: ')),
                 Spd = int(input('Digite o bônus de velocidade da arma: ')),
                 Efeito = str(input('Digite o efeito do acessório: ')))
+                print(f'Acessório criado com sucesso.')
+                print(acessorio)
 
             case "7":
-                itens = Items(Nome = str(input('Digite o nome da arma: ')),
+                item = Items(Nome = str(input('Digite o nome da arma: ')),
                 Efeito = str(input('Digite o efeito do item: ')))
+                print(f'Item criado com sucesso.')
+                print(item)
 
             case "8":
                 if personagem == None:
