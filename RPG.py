@@ -202,10 +202,10 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
             
             match opcao:
                 case "1":
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
+                    Dano_personagem = Ataque_Personagem(Personagem, Inimigos, Dano)
                     if Inimigos.Spd > Personagem.Spd:
                         print(f'\n{Inimigos.Nome} age primeiro.')
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        Dano_personagem = Ataque_Personagem(Personagem, Inimigos, Dano)
                         if Dano_inimigo > 0:
                             Personagem.HP -= Dano_inimigo
                             print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
@@ -222,12 +222,10 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                             if Inimigos.HP <= 0:
                                 print(f'{Inimigos.Nome} morreu.')
                                 break
-                            else:
-                                print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
+                        else:
+                            print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
                     else:
                         print(f'\n{Personagem.Nome} age primeiro.')
-                        Dano_personagem = Ataque_Personagem(Personagem, Inimigos, Dano)
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
                         if Dano_personagem > 0:
                             Inimigos.HP -= Dano_personagem
                             print(f'{Personagem.Nome} ataca, {Inimigos.Nome} perde {Dano_personagem} HP')
@@ -248,10 +246,11 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                             print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
                 case "2":
+                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
+                    Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
+
                     if Inimigos.Spd > Personagem.Spd:
                         print(f'\n{Inimigos.Nome} age primeiro.')
-                        Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
-                        Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
                         if Dano_inimigo > 0:
                             Personagem.HP -= Dano_inimigo
                             print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
@@ -272,8 +271,6 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                             print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
                     print(f'\n{Personagem.Nome} age primeiro.')
-                    Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
-                    Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
                     if Dano_personagem > 0:
                         Inimigos.HP -= Dano_personagem
                         print(f'{Personagem.Nome} usa magia, {Inimigos.Nome} perde {Dano_personagem} HP')
