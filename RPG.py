@@ -261,31 +261,31 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                             print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
                         if Dano_personagem > 0:
                             Inimigos.HP -= Dano_personagem
-                            print(f'{Personagem.Nome} ataca, {Inimigos.Nome} perde {Dano_personagem} HP')
+                            print(f'{Personagem.Nome} usa magia, {Inimigos.Nome} perde {Dano_personagem} HP')
                             print(f'{Inimigos.HP} restante.')
                             if Inimigos.HP <= 0:
                                 print(f'{Inimigos.Nome} morreu.')
                                 break
                         else:
-                            print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
-
-                    print(f'\n{Personagem.Nome} age primeiro.')
-                    if Dano_personagem > 0:
-                        Inimigos.HP -= Dano_personagem
-                        print(f'{Personagem.Nome} usa magia, {Inimigos.Nome} perde {Dano_personagem} HP')
-                        print(f'{Inimigos.HP} restante.')
-                        if Inimigos.HP <= 0:
-                            print(f'{Inimigos.Nome} morreu.')
-                            break
+                            print(f'{Personagem.Nome} usa magia... {Inimigos.Nome} desvia.')
+                    else:
+                        print(f'\n{Personagem.Nome} age primeiro.')
+                        if Dano_personagem > 0:
+                            Inimigos.HP -= Dano_personagem
+                            print(f'{Personagem.Nome} usa magia, {Inimigos.Nome} perde {Dano_personagem} HP')
+                            print(f'{Inimigos.HP} restante.')
+                            if Inimigos.HP <= 0:
+                                print(f'{Inimigos.Nome} morreu.')
+                                break
                         else:
                             print(f'{Personagem.Nome} usa magia... {Inimigos.Nome} desvia.')
-                    if Dano_inimigo > 0:
-                        Personagem.HP -= Dano_inimigo
-                        print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
-                        print(f'{Personagem.HP} restante.')
-                        if Personagem.HP <= 0:
-                            print(f'{Personagem.Nome} morreu.')
-                            break
+                        if Dano_inimigo > 0:
+                            Personagem.HP -= Dano_inimigo
+                            print(f'{Inimigos.Nome} ataca, {Personagem.Nome} perde {Dano_inimigo} HP')
+                            print(f'{Personagem.HP} restante.')
+                            if Personagem.HP <= 0:
+                                print(f'{Personagem.Nome} morreu.')
+                                break
                         else:
                             print(f'{Inimigos.Nome} ataca... {Personagem.Nome} defendeu.')
 
@@ -348,10 +348,9 @@ def Ataque_Inimigo(Inimigos, Personagem, Dano):
 
 def main():
 
-    goblin = Inimigos("Goblin", 20, 10, 1, 2, 1, 5, 5)
     Dano = 0
-    personagem = Personagem("Pedro", "Barbaro", 1, 20, 10, 10, 3, 3, 4)
-    inimigo = Inimigos("Orc", 20, 10, 10, 3, 3, 5, 5)
+    personagem = None
+    inimigo = None
 
     while True:
 
