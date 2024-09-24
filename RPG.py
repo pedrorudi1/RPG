@@ -370,7 +370,7 @@ def main():
                 print(f'Personagem criado com sucesso.')
                 print(personagem)
 
-            case  "2":
+            case "2":
                 inimigo = Inimigos(Nome = str(input('Digite o nome do Inimigo: ')),
                 HP = int(input('Digite o HP inicial do Inimigo: ')),
                 Atk = int(input('Digite o ataque inicial do Inimigo: ')),
@@ -398,7 +398,7 @@ def main():
                 print(f'Armadura criada com sucesso.')
                 print(armadura)
 
-            case  "5":
+            case "5":
                 escudo = Escudos(Nome = str(input('Digite o nome do escudo: ')),
                 Def = int(input('Digite a força de defesa do escudo: ')),
                 MagDef = int(put('Digite a força de defesa mágica do escudo: ')),
