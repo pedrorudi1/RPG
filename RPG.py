@@ -249,7 +249,7 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                         else:
                             print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
-            if opcao == "2":
+            elif opcao == "2":
                 if Personagem.Spd >= Inimigos.Spd:
                     print(f'\n{Personagem.Nome} age primeiro.')
                     Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
@@ -299,7 +299,7 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                     else:
                         print(f'{Personagem.Nome} ataca... {Inimigos.Nome} defendeu.')
 
-            if opcao == "3":
+            elif opcao == "3":
                 print(f'{Personagem.Nome} se defende.')
                 Personagem.Def = int(Personagem.Def * 2)
                 Personagem.MagDef = int(Personagem.MagDef * 2)
@@ -316,7 +316,7 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                 Personagem.Def = int(Personagem.Def / 2)
                 Personagem.MagDef = int(Personagem.MagDef / 2)
 
-            if opcao == "4":
+            elif opcao == "4":
                 fuga = random.randint(1, 5)
                 if fuga >= 3:
                     print(f'{Personagem.Nome} fugiu.')
@@ -402,7 +402,8 @@ def main():
         if opcao == "3":
             arma = Armas(Nome = str(input('Digite o nome da arma: ')),
             Atk = int(input('Digite a força de ataque da arma: ')),
-            MagAtk = int(put('Digite a força de ataque mágico da arma: ')), Spd:int)
+            MagAtk = int(put('Digite a força de ataque mágico da arma: ')),
+            Spd = int(input('Digite o bônus de velocidade da arma: ')))
 
         if opcao == "8":
                 Modo_de_batalha(personagem, inimigo, Dano)
