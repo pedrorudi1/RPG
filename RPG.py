@@ -132,7 +132,7 @@ class Escudos:
     
 
 class Acessorios:
-    def __init__(self, Nome:str, HP:int, Atk:int, Def:int, MagAtk:int, MagDef:int, Spd:int, Efeito:int):
+    def __init__(self, Nome:str, HP:int, Atk:int, Def:int, MagAtk:int, MagDef:int, Spd:int, Efeito:str):
         self.Nome = Nome
         self.HP = HP
         self.Atk = Atk
@@ -248,7 +248,6 @@ def Modo_de_batalha(Personagem, Inimigos, Dano):
                 case "2":
                     Dano_inimigo = Ataque_Inimigo(Inimigos, Personagem, Dano)
                     Dano_personagem = Magia_Personagem(Personagem, Inimigos, Dano)
-
                     if Inimigos.Spd > Personagem.Spd:
                         print(f'\n{Inimigos.Nome} age primeiro.')
                         if Dano_inimigo > 0:
@@ -347,7 +346,6 @@ def Ataque_Inimigo(Inimigos, Personagem, Dano):
         Dano = random.randint(1, Inimigos.MagAtk) - Personagem.MagDef
         return Dano
 
-
 def main():
 
     goblin = Inimigos("Goblin", 20, 10, 1, 2, 1, 5, 5)
@@ -359,38 +357,65 @@ def main():
 
         opcao = MenuPrincipal()
 
-        if opcao == "1":
-            personagem = Personagem(Nome = str(input('Digite o nome do Personagem: ')),
-            Classe = str(input('Digite a Classe do Personagem: ')),
-            level = int(input('Digite o nível inicial do personagem: ')),
-            HP = int(input('Digite o HP inicial do Personagem: ')),
-            Atk = int(input('Digite o ataque inicial do Personagem: ')),
-            MagAtk = int(input('Digite o Ataque Mágico do Personagem: ')),
-            Def = int(input('Digite a defesa do personagem: ')),
-            MagDef = int(input('Digite a Defesa Mágica do Personagem: ')),
-            Spd = int(input('Digite a Velocidade do Personagem: ')))
-            print(f'Personagem criado com sucesso.')
-            print(personagem)
+        match opcao:
+            case "1":
+                personagem = Personagem(Nome = str(input('Digite o nome do Personagem: ')),
+                Classe = str(input('Digite a Classe do Personagem: ')),
+                level = int(input('Digite o nível inicial do personagem: ')),
+                HP = int(input('Digite o HP inicial do Personagem: ')),
+                Atk = int(input('Digite o ataque inicial do Personagem: ')),
+                MagAtk = int(input('Digite o Ataque Mágico do Personagem: ')),
+                Def = int(input('Digite a defesa do personagem: ')),
+                MagDef = int(input('Digite a Defesa Mágica do Personagem: ')),
+                Spd = int(input('Digite a Velocidade do Personagem: ')))
+                print(f'Personagem criado com sucesso.')
+                print(personagem)
 
-        if opcao == "2":
-            inimigo = Inimigos(Nome = str(input('Digite o nome do Inimigo: ')),
-            HP = int(input('Digite o HP inicial do Inimigo: ')),
-            Atk = int(input('Digite o ataque inicial do Inimigo: ')),
-            MagAtk = int(input('Digite o Ataque Mágico do Inimigo: ')),
-            Def = int(input('Digite a defesa do Inimigo: ')),
-            MagDef = int(input('Digite a Defesa Mágica do Inimigo: ')),
-            Spd = int(input('Digite a Velocidade do Inimigo: ')),
-            Xp = int(input('Digite a quantidade de Experiência que o Inimigo tem: ')))
-            print(f'Inimigo criado com sucesso.')
-            print(inimigo)
+            case  "2":
+                inimigo = Inimigos(Nome = str(input('Digite o nome do Inimigo: ')),
+                HP = int(input('Digite o HP inicial do Inimigo: ')),
+                Atk = int(input('Digite o ataque inicial do Inimigo: ')),
+                MagAtk = int(input('Digite o Ataque Mágico do Inimigo: ')),
+                Def = int(input('Digite a defesa do Inimigo: ')),
+                MagDef = int(input('Digite a Defesa Mágica do Inimigo: ')),
+                Spd = int(input('Digite a Velocidade do Inimigo: ')),
+                Xp = int(input('Digite a quantidade de Experiência que o Inimigo tem: ')))
+                print(f'Inimigo criado com sucesso.')
+                print(inimigo)
             
-        if opcao == "3":
-            arma = Armas(Nome = str(input('Digite o nome da arma: ')),
-            Atk = int(input('Digite a força de ataque da arma: ')),
-            MagAtk = int(put('Digite a força de ataque mágico da arma: ')),
-            Spd = int(input('Digite o bônus de velocidade da arma: ')))
+            case "3":
+                arma = Armas(Nome = str(input('Digite o nome da arma: ')),
+                Atk = int(input('Digite a força de ataque da arma: ')),
+                MagAtk = int(put('Digite a força de ataque mágico da arma: ')),
+                Spd = int(input('Digite o bônus de velocidade da arma: ')))
 
-        if opcao == "8":
+            case "4":
+                armadura = Armaduras(Nome = str(input('Digite o nome da armadura: ')),
+                Def = int(input('Digite a força de defesa da armadura: ')),
+                MagDef = int(put('Digite a força de defesa mágica da armadura: ')),
+                Spd = int(input('Digite o bônus de velocidade da armadura: ')))
+
+            case  "5":
+                escudo = Escudos(Nome = str(input('Digite o nome do escudo: ')),
+                Def = int(input('Digite a força de defesa do escudo: ')),
+                MagDef = int(put('Digite a força de defesa mágica do escudo: ')),
+                Spd = int(input('Digite o bônus de velocidade do escudo: ')))
+
+            case "6":
+                acessorio = Acessorios(Nome = str(input('Digite o nome do acessório: ')),
+                HP = int(input('Digite o bônus de HP do acessório: ')),
+                Atk = int(input('Digite o bônus de ataque do acessório: ')),
+                Def = int(input('Digite o bônus de defesa do acessório: ')),
+                MagAtk = int(input('Digite o bônus de ataque mágico do acessório: ')),
+                MagDef = int(input('Digite o bônus de Defesa Mágica do acessório: ')),
+                Spd = int(input('Digite o bônus de velocidade da arma: ')),
+                Efeito = str(input('Digite o efeito do acessório: ')))
+
+            case "7":
+                itens = Items(Nome = str(input('Digite o nome da arma: ')),
+                Efeito = str(input('Digite o efeito do item: ')))
+
+            case "8":
                 if personagem == None:
                     print(f'Necessário criar personagem primeiro.')
                 if inimigo == None:
@@ -398,10 +423,13 @@ def main():
                 else:
                     Modo_de_batalha(personagem, inimigo, Dano)
  
-        if opcao == "9":
-            break
+            case "9":
+                break
 
+            case other:
+                print('Opção inválida.')
 
+        
 main()
 
 # print(barbaro1)
