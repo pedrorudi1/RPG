@@ -14,41 +14,41 @@ class Personagem:
         self.Spd = Spd
 
     def Equipar_arma(self, Armas):
-        self.Atk = self.Atk + Armas.Atk
-        self.MagAtk = self.MagAtk + Armas.MagAtk
-        self.Spd = self.Spd + Armas.Spd
+        self.Atk += Armas.Atk
+        self.MagAtk += Armas.MagAtk
+        self.Spd += Armas.Spd
         print(f'Equipou {Armas.Nome}')
 
     def Equipar_armadura(self, Armaduras):
-        self.Def = self.Def + Armaduras.Def
-        self.MagDef = self.MagDef + Armaduras.MagDef
-        self.Spd = self.Spd + Armaduras.Spd
+        self.Def += Armaduras.Def
+        self.MagDef += Armaduras.MagDef
+        self.Spd += Armaduras.Spd
         print(f'Equipou {Armaduras.Nome}')
 
     def Equipar_escudo(self, Escudos):
-        self.Def = self.Def + Escudos.Def
-        self.MagDef = self.MagDef + Escudos.MagDef
-        self.Spd = self.Spd + Escudos.Spd
+        self.Def += Escudos.Def
+        self.MagDef += Escudos.MagDef
+        self.Spd += Escudos.Spd
         print(f'Equipou {Escudos.Nome}')
     
     def Equipar_acessorio(self, Acessorios):
-        self.HP = self.HP + Acessorios.HP
-        self.Atk = self.Atk + Acessorios.Atk
-        self.Def = self.Def + Acessorios.Def
-        self.MagAtk = self.MagAtk + Acessorios.MagAtk
-        self.MagDef = self.MagDef + Acessorios.MagDef
-        self.Spd = self.Spd + Acessorios.Spd
+        self.HP += Acessorios.HP
+        self.Atk += Acessorios.Atk
+        self.Def += Acessorios.Def
+        self.MagAtk += Acessorios.MagAtk
+        self.MagDef += Acessorios.MagDef
+        self.Spd += Acessorios.Spd
         self.Efeito = Acessorios.Efeito
 
     def level_up(self, level):
         self.level = level + 1
-        self.HP = self.HP + (2 * level)
-        self.Atk = self.Atk + (2 * level)
-        self.MagAtk = self.MagAtk + (1 * level)
-        self.Def = self.Def + (1 * level)
-        self.MagDef = self.MagDef + (1 * level)
-        self.Spd = self.Spd + (1 * level)
-        print(f'\n        Subiu {level} nível(eis)!')
+        self.HP += (2 * level)
+        self.Atk += (2 * level)
+        self.MagAtk += (1 * level)
+        self.Def += (1 * level)
+        self.MagDef += (1 * level)
+        self.Spd += (1 * level)
+        print(f'\nSubiu {level} nível(eis)!')
 
     def __str__(self):
         return f'''
@@ -341,7 +341,6 @@ def Ataque_Inimigo(Inimigos, Personagem, Dano):
         Dano = random.randint(1, Inimigos.Atk) - Personagem.Def
         return Dano
 
-                    
     elif acao_inimigo == 2:
         Dano = random.randint(1, Inimigos.MagAtk) - Personagem.MagDef
         return Dano
@@ -385,7 +384,7 @@ def main():
             case "3":
                 arma = Armas(Nome = str(input('Digite o nome da arma: ')),
                 Atk = int(input('Digite a força de ataque da arma: ')),
-                MagAtk = int(put('Digite a força de ataque mágico da arma: ')),
+                MagAtk = int(input('Digite a força de ataque mágico da arma: ')),
                 Spd = int(input('Digite o bônus de velocidade da arma: ')))
                 print(f'Arma criada com sucesso.')
                 print(arma)
@@ -393,7 +392,7 @@ def main():
             case "4":
                 armadura = Armaduras(Nome = str(input('Digite o nome da armadura: ')),
                 Def = int(input('Digite a força de defesa da armadura: ')),
-                MagDef = int(put('Digite a força de defesa mágica da armadura: ')),
+                MagDef = int(input('Digite a força de defesa mágica da armadura: ')),
                 Spd = int(input('Digite o bônus de velocidade da armadura: ')))
                 print(f'Armadura criada com sucesso.')
                 print(armadura)
@@ -401,7 +400,7 @@ def main():
             case "5":
                 escudo = Escudos(Nome = str(input('Digite o nome do escudo: ')),
                 Def = int(input('Digite a força de defesa do escudo: ')),
-                MagDef = int(put('Digite a força de defesa mágica do escudo: ')),
+                MagDef = int(input('Digite a força de defesa mágica do escudo: ')),
                 Spd = int(input('Digite o bônus de velocidade do escudo: ')))
                 print(f'Escudo criado com sucesso.')
                 print(escudo)
@@ -438,5 +437,5 @@ def main():
             case other:
                 print('Opção inválida.')
 
-        
+
 main()
