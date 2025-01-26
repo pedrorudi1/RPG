@@ -1,5 +1,5 @@
 import random
-
+import pydantic
 
 class Personagem:
     def __init__(self, Nome: str, Classe: str, level: int, HP: int, Atk: int, MagAtk: int, Def: int, MagDef: int,
